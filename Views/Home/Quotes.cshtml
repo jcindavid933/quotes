@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Quoting Dojo</title>
+    <link rel="stylesheet" href="~/css/style.css"/>
+  </head>
+  <body>
+    <div class="container">
+        <h1>Here are the awesome quotes!</h1>
+        <div class="quote-box">
+            <p>
+                @{
+                    foreach (Dictionary<string,object> user in ViewBag.users)
+                    {
+                        ViewBag.quote = user["quote"];
+                        <p class="quote">"@ViewBag.quote"</p>;
+                        ViewBag.name = user["name"];
+                        ViewBag.created_at = user["created_at"];
+                        <p class="name">-@ViewBag.name at @ViewBag.created_at</p>;
+                        <p>----------------------------------------------------</p>
+                    }
+                }
+            </p>
+        </div>
+    </div>
+  </body>
+</html>
